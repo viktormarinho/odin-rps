@@ -1,3 +1,63 @@
+let computerScore = 0;
+let playerScore = 0;
+let draws = 0;
+
+const startBtn = document.querySelector('#btn');
+const gameContainer = document.querySelector('.game-container');
+
+startBtn.addEventListener('click', (e) => {
+    startBtn.parentElement.style.opacity = '0%';
+    gameContainer.style.opacity = '100%';
+});
+
+const playButtons = document.querySelectorAll('.game-btn');
+playButtons.forEach( (button) => {
+    button.addEventListener('click', clickButton);
+    // AAAAAAAAA ARRUMAR ISSO URGENTE PQP
+    button.param = button;
+});
+
+// ESSA FUNC TEM QUE FUNFAR PLO AMOR D DEUS!
+function clickButton(evt){
+    let button = evt.currentTarget.param;
+    button.classList.remove('game-btn');
+    const jogada = button.classList.value;
+
+    
+    let res = playRound(jogada, computerPlay())
+    document.querySelector('.result').textContent = res[0];
+    if (res[1] == 1){   
+        draws++;
+    }else if(res[1] == 2){
+        playerScore++;
+    }else if(res[1] == 3){
+        computerScore++;
+    }
+
+    button.classList.add('game-btn');
+
+    if (playerScore + draws + computerScore == 5){
+        finalizar();
+    }
+}
+function finalizar(){
+    if (computerScore == playerScore){
+        document.querySelector('.result2').textContent = 'Draw!';
+    }else if(computerScore > playerScore){
+        document.querySelector('.result2').textContent = 'You Lose!';
+    }else if (playerScore > computerScore){
+        document.querySelector('.result2').textContent = 'You Win!';
+    }
+    document.querySelector('.result').textContent = `Draws: ${draws}\ncomputer score: ${computerScore}\nplayer score: ${playerScore}`;
+    playerScore = 0; 
+    draws = 0; 
+    computerScore = 0;
+
+    playButtons.forEach( (button) => {
+        button.removeEventListener('click', );
+    });
+}
+
 
 function computerPlay(){
     let random = Math.floor(Math.random() * 3) + 1
@@ -25,25 +85,4 @@ function playRound(playerSelection, computerSelection){
     return console.error('alguma coisa deu merda');
 }
 
-function game(){
-    computerScore = 0, playerScore = 0, draws = 0
-    for (let i=0; i < 5; i++){
-        let res = playRound(window.prompt('Choose between rock, paper or scissors'), computerPlay())
-        console.log(res[0])
-        if (res[1] == 1){
-            draws++
-        }else if(res[1] == 2){
-            playerScore++
-        }else if(res[1] == 3){
-            computerScore++
-        }
-    }
-    console.log(`Draws: ${draws}\ncomputer score: ${computerScore}\nplayer score: ${playerScore}`)
-    if (computerScore == playerScore){
-        console.log('Draw!')
-    }else if(computerScore > playerScore){
-        console.log('You lose!')
-    }else if (playerScore > computerScore){
-        console.log('You win!')
-    }
-}
+

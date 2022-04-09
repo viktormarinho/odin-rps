@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+*{
+    padding: 0; margin: 0;
+}
+body{
+    background-color: rgb(54, 54, 54);
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+    align-items: flex-start;
+    transition: opacity 0.3s;
+}
+button{
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
+    background-color: rgb(0, 151, 156);;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    transition:  background-color 0.4s;
+    color: white;
+}
+button:hover{
+    background-color: rgb(0, 110, 114);
+}
+.header-title{
+    font-size: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+}
+.header-icons{
+    font-size: 40px;
+    color: rgb(0, 247, 255);
+}
+.game-container{
+    opacity: 0%;
+    transition: opacity 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.game{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+.game-btn{
+    cursor: pointer;
+    font-size: 65px;
+    padding: 1rem;
+    border: 4px solid rgb(0, 110, 114);
+    background-color: rgb(85, 249, 255);
+    color: rgb(0, 69, 71);
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+.game-btn:hover{
+    background-color: rgb(255, 151, 14);
+}
