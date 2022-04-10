@@ -8,16 +8,18 @@ const gameContainer = document.querySelector('.game-container');
 startBtn.addEventListener('click', (e) => {
     startBtn.parentElement.style.opacity = '0%';
     gameContainer.style.opacity = '100%';
+    document.querySelector('h2').textContent = 'Choose your play!';
+    start();
 });
 
 const playButtons = document.querySelectorAll('.game-btn');
-playButtons.forEach( (button) => {
-    button.addEventListener('click', clickButton);
-    // AAAAAAAAA ARRUMAR ISSO URGENTE PQP
-    button.param = button;
-});
+function start(){
+    playButtons.forEach( (button) => {
+        button.addEventListener('click', clickButton);
+        button.param = button;
+    });
+}
 
-// ESSA FUNC TEM QUE FUNFAR PLO AMOR D DEUS!
 function clickButton(evt){
     let button = evt.currentTarget.param;
     button.classList.remove('game-btn');
@@ -54,8 +56,11 @@ function finalizar(){
     computerScore = 0;
 
     playButtons.forEach( (button) => {
-        button.removeEventListener('click', );
+        button.removeEventListener('click', clickButton);
+        button.style.cursor = 'normal';
     });
+    startBtn.parentElement.style.opacity = '100%';
+    document.querySelector('h2').textContent = 'Game Finished!';
 }
 
 
